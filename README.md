@@ -2,7 +2,16 @@
 
 This is a set of scripts to test repeatedly pushing and pulling images from an [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/products/container-registry).
 
+This is useful for populating a test registry with images or repositories. It is also useful for generating activity, metrics, and logs for the ACR registry.
+
 # Usage
+
+## Clone the Repository
+
+```
+git clone https://github.com/johnsonshi/acr-push-pull-tester.git
+cd acr-push-pull-tester
+```
 
 ## Creating an ACR Registry for Testing
 
@@ -24,6 +33,20 @@ Test pulling all images from a registry, with each image being pulled N times re
 
 ```
 ./test-pull.sh registry-name-without-azurecr.io> <num-times-per-image>
+```
+
+## Test Pushing and Pulling Images Until N Minutes Elapse
+
+Test building and pushing pushing N new images (from randomly generated Dockerfiles) to the registry until X minutes elapse, with each image being pushed N times repeatedly.
+
+```
+./test-push-repeatedly-until-n-minutes.sh <registry-name-without-azurecr.io> <num-images> <num-times-per-image> <num-minutes>
+```
+
+Test pulling all images from a registry until X minutes elapse, with each image being pulled N times repeatedly.
+
+```
+./test-pull-repeatedly-until-n-minutes.sh <registry-name-without-azurecr.io> <num-times-per-image> <num-minutes>
 ```
 
 ## Deleting the ACR Registry
