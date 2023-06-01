@@ -32,13 +32,13 @@ Test building and pushing pushing N new images (from randomly generated Dockerfi
 Test pulling all images from a registry, with each image being pulled N times repeatedly.
 
 ```
-./test-pull.sh registry-name-without-azurecr.io> <num-times-per-image>
+./test-pull.sh <registry-name-without-azurecr.io> <num-times-per-image>
 ```
 
 To ensure that testing pull always pulls images from the registry to the local Docker store, prune (delete) the local Docker cache by specifying `prune` as the last argument to `test-pull.sh`.
 
 ```
-./test-pull.sh registry-name-without-azurecr.io> <num-times-per-image> prune
+./test-pull.sh <registry-name-without-azurecr.io> <num-times-per-image> prune
 ```
 
 ## Test Pushing and Pulling Images Until N Minutes Elapse
