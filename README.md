@@ -35,6 +35,12 @@ Test pulling all images from a registry, with each image being pulled N times re
 ./test-pull.sh registry-name-without-azurecr.io> <num-times-per-image>
 ```
 
+To ensure that testing pull always pulls images from the registry to the local Docker store, prune (delete) the local Docker cache by specifying `prune` as the last argument to `test-pull.sh`.
+
+```
+./test-pull.sh registry-name-without-azurecr.io> <num-times-per-image> prune
+```
+
 ## Test Pushing and Pulling Images Until N Minutes Elapse
 
 Test building and pushing pushing N new images (from randomly generated Dockerfiles) to the registry until X minutes elapse, with each image being pushed N times repeatedly.
@@ -47,6 +53,12 @@ Test pulling all images from a registry until X minutes elapse, with each image 
 
 ```
 ./test-pull-repeatedly-until-n-minutes.sh <registry-name-without-azurecr.io> <num-times-per-image> <num-minutes>
+```
+
+To ensure that testing pull always pulls images from the registry to the local Docker store, prune (delete) the local Docker cache by specifying `prune` as the last argument to `test-pull-repeatedly-until-n-minutes.sh`.
+
+```
+./test-pull-repeatedly-until-n-minutes.sh <registry-name-without-azurecr.io> <num-times-per-image> <num-minutes> prune
 ```
 
 ## Deleting the ACR Registry
